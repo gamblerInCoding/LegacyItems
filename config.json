@@ -1,0 +1,42 @@
+{
+     "model_algorithm": "image_classification",
+     "model_type": "Image",
+     "runtime": "ms1.3.0-python3.7-c78",
+     "apis": [{
+		"procotol": "http",
+        "url": "/infer/image",
+        "method": "post",
+        "request": {
+            "Content-type": "multipart/form-data",
+            "data": {
+                "type": "object",
+                "properties": {
+					"images": {    
+						"type": "file"
+                    }
+                }
+            }
+        },
+        "response": {
+            "Content-type": "applicaton/json",
+            "data": {
+                "type": "object",
+                "properties": {
+                    "mnist_result": {
+                        "type": "array",
+						"item": [{
+							"type": "string"
+                        }]
+                    }
+                }
+            }
+        }
+    }],
+     "metrics": {
+         "f1": 0.124555,
+         "recall": 0.171875,
+         "precision": 0.0023493892851938493,
+         "accuracy": 0.00746268656716417
+     }
+ }
+ 
